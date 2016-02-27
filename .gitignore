@@ -6,3 +6,5 @@ bin/
 build/
 target/
 work/
+# Ignore Application Property/Credentials  files
+src/main/resources/git.ignored.app.properties

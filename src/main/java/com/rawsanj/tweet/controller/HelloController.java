@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import com.rawsanj.tweet.entity.TweetZ;
+import com.rawsanj.tweet.repository.TweetZRepository;
 import com.rawsanj.tweet.service.StreamService;
 
 @Controller
@@ -30,12 +32,15 @@ public class HelloController {
 	private TwitterTemplate twitterTemplate;
     
     private StreamService streamService;
+    
+    private TweetZRepository tweetZRepository;
 
     @Inject
-    public HelloController(StreamService streamService, TwitterTemplate twitterTemplate) {
+    public HelloController(StreamService streamService, TwitterTemplate twitterTemplate, TweetZRepository tweetZRepository) {
         
         this.streamService = streamService;
         this.twitterTemplate=twitterTemplate;
+        this.tweetZRepository=tweetZRepository;
     }
 
     @RequestMapping(value = "tweet/{search}/{count}",method=RequestMethod.GET)
@@ -52,10 +57,15 @@ public class HelloController {
         
         System.out.println("+++++++++++++++++++DEBUGGING++++++++++++++++++");
         int i =0;
+        
         for (Tweet tweet : tweets) {
         	i++;
 			System.out.println(i + " - "+tweet.getUser().getName() + " Tweeted : "+tweet.getText() + " from " + tweet.getUser().getLocation() 
 					+ " @ " + tweet.getCreatedAt() + tweet.getUser().getLocation()  );
+			
+			TweetZ tweetZ = new TweetZ(tweet.getText(), tweet.getCreatedAt(), tweet.getFromUser(), tweet.getLanguageCode(), tweet.getLanguageCode());
+			
+			tweetZRepository.save(tweetZ);
 			
 		}
         System.out.println("+++++++++++++++++++++++++++++++++GeoTemnplatePlz Work++++++++++++++++++++++++");
