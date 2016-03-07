@@ -1,5 +1,7 @@
 package com.rawsanj.tweet.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -48,7 +50,9 @@ public class HelloController {
         
         List<Tweet> tweets = results.getTweets();        
         model.addAttribute("tweets", tweets);
-        
+        model.addAttribute("count", count);
+        List<Integer> listOfAge = new ArrayList<>(Arrays.asList(23,45,45,23,54,23,43));
+        model.addAttribute("listOfAge", listOfAge);
         
         System.out.println("+++++++++++++++++++DEBUGGING++++++++++++++++++");
         int i =0;
@@ -79,6 +83,7 @@ public class HelloController {
 
         return "stream";
     }
+    
 
 //    @RequestMapping("/streamfire/{time}")
 //    public String streamFireTweet(@PathVariable int time) throws InterruptedException{

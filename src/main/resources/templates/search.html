@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>Hello Twitter</title>
 	</head>
@@ -6,13 +6,43 @@
 				
 		<h4>These Searched Tweets:</h4>
 		
-		<ul>
-			<li th:each="tweet:${tweets}" 
-				th:text="${tweet.text} + ' tweeted by - ' + ${tweet.user.name} 
-					+ ' from ' + ${tweet.user.location}
-					+ ' @ ' + ${tweet.createdAt}">
-					Tweet
-			</li>
-		</ul>
+		<table border="1">
+		    <tr>
+		    	<th>Sr. No</th>
+		        <th>Tweet</th>
+		        <th>User Name</th>
+		        <th>Location</th>
+		        <th>Created At</th>
+		    </tr>
+		    <tr th:each="tweet,iterationstatus :${tweets}">
+		    	<td th:text="${iterationstatus.count}">1</td>
+		        <td th:text="${tweet.text}"> Tweet </td>	
+		        <td th:text="${tweet.user.name}"> User Name </td>
+		        <td th:text="${tweet.user.location}"> Location </td>
+		        <td th:text="${tweet.createdAt}"> Created At </td>
+		    </tr>
+		</table>
+		<table border="1">
+		    <tr>
+		    	<th>Name</th>
+		        <th>Age</th>
+		    </tr>
+		    <tr>
+		    	<td>User 1</td>
+		        <td th:text="${count}"> Age </td>
+		    </tr>
+		</table>
+		<table border="1">
+		    <tr>
+		    	<th>Sr. No</th>
+		    	<th>Name</th>
+		        <th>Age</th>
+		    </tr>
+		    <tr th:each="age,iterationstatus :${listOfAge}">
+		    	<td th:text="${iterationstatus.count}">1</td>
+		    	<td>User 1</td>
+		        <td th:text="${age}"> Age </td>
+		    </tr>
+		</table>
 	</body>
 </html>
