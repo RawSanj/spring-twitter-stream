@@ -5,6 +5,7 @@
 
     <groupId>org.springframework</groupId>
     <artifactId>spring-twitter-stream</artifactId>
+    <packaging>war</packaging>
     <version>0.1.0</version>
 
     <parent>
@@ -14,6 +15,15 @@
     </parent>
 
     <dependencies>
+    	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -25,8 +35,10 @@
     </dependencies>
 
     <properties>
-        <java.version>1.8</java.version>
-    </properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<start-class>com.rawsanj.tweet.Application</start-class>
+	</properties>
 
     <build>
         <plugins>
