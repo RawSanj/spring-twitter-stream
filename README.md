@@ -1,5 +1,7 @@
 # Spring-Twitter-Stream
 
+[![Join the chat at https://gitter.im/RawSanj/Spring-Twitter-Stream](https://badges.gitter.im/RawSanj/Spring-Twitter-Stream.svg)](https://gitter.im/RawSanj/Spring-Twitter-Stream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Spring Boot - Spring Social Twitter - D3.Js webapp for Streaming Live #HashTags and source location of Tweets.
 
 ## Demo
