@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.rawsanj.tweet.service.StreamService;
@@ -40,9 +41,11 @@ public class HelloController {
         this.twitterTemplate=twitterTemplate;
     }
 
-    @RequestMapping(value = "tweet/{search}/{count}",method=RequestMethod.GET)
-    public String searchTwitter(Model model, @PathVariable String search, @PathVariable int count) {
-
+    @RequestMapping(value = "tweet",method=RequestMethod.GET)
+    public String searchTwitter(Model model, @RequestParam String search) {
+    	
+    	int count = 200;
+    	
         SearchResults results = twitterTemplate.searchOperations().search(
         	    new SearchParameters(search)
         	        .resultType(SearchParameters.ResultType.RECENT)
@@ -51,26 +54,25 @@ public class HelloController {
         List<Tweet> tweets = results.getTweets();        
         model.addAttribute("tweets", tweets);
         model.addAttribute("count", count);
-        List<Integer> listOfAge = new ArrayList<>(Arrays.asList(23,45,45,23,54,23,43));
-        model.addAttribute("listOfAge", listOfAge);
+        model.addAttribute("search", search);
         
-        System.out.println("+++++++++++++++++++DEBUGGING++++++++++++++++++");
-        int i =0;
-        for (Tweet tweet : tweets) {
-        	i++;
-			System.out.println(i + " - "+tweet.getUser().getName() + " Tweeted : "+tweet.getText() + " from " + tweet.getUser().getLocation() 
-					+ " @ " + tweet.getCreatedAt() + tweet.getUser().getLocation()  );
-			
-		}
-        System.out.println("+++++++++++++++++++++++++++++++++GeoTemnplatePlz Work++++++++++++++++++++++++");
-        RestTemplate restTemplate = twitterTemplate.getRestTemplate();
-        GeoTemplate geoTemplate = new GeoTemplate(restTemplate, true, true);
-        List<Place> place = geoTemplate.search(37.423021, -122.083739);
-        for (Place p : place) {
-			System.out.println(p.getName() + " " + p.getCountry() );
-		} 
-        System.out.println("+++++++++++++++++++++++++++++++++GeoTemnplatePlz Work++++++++++++++++++++++++");
-        
+//        System.out.println("+++++++++++++++++++DEBUGGING++++++++++++++++++");
+//        int i =0;
+//        for (Tweet tweet : tweets) {
+//        	i++;
+//			System.out.println(i + " - "+tweet.getUser().getName() + " Tweeted : "+tweet.getText() + " from " + tweet.getUser().getLocation() 
+//					+ " @ " + tweet.getCreatedAt() + tweet.getUser().getLocation()  );
+//			
+//		}
+//        System.out.println("+++++++++++++++++++++++++++++++++GeoTemnplatePlz Work++++++++++++++++++++++++");
+//        RestTemplate restTemplate = twitterTemplate.getRestTemplate();
+//        GeoTemplate geoTemplate = new GeoTemplate(restTemplate, true, true);
+//        List<Place> place = geoTemplate.search(37.423021, -122.083739);
+//        for (Place p : place) {
+//			System.out.println(p.getName() + " " + p.getCountry() );
+//		} 
+//        System.out.println("+++++++++++++++++++++++++++++++++GeoTemnplatePlz Work++++++++++++++++++++++++");
+//        
         
         return "search";
     }

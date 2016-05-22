@@ -41,7 +41,7 @@ public class StreamTweetEventService {
 				//log.info("User '{}', Tweeted : {}, from ; {}", tweet.getUser().getName() , tweet.getText(), tweet.getUser().getLocation());
 				Integer connectedUsers =  emitters.size();
 				
-				log.info("Streaming to :" + connectedUsers +" connected Users");
+				//log.info("Streaming to :" + connectedUsers +" connected Users");
 				
 				if (connectedUsers!=0) {
 					for (SseEmitter emiter : emitters) {
@@ -64,6 +64,7 @@ public class StreamTweetEventService {
 				}else{
 					//Close Stream when all Users are disconnected.
 					userStream.close();
+					log.info("Zero Connected Users - Closing Stream");
 				}
 				
 			}
