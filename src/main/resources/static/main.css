@@ -1,0 +1,118 @@
+#hashTags{
+    overflow-y:scroll;
+    overflow-x: hidden;
+    position: absolute;
+    height: 100%;
+    width: inherit;
+    scrollbar-face-color: #367CD2;
+    scrollbar-shadow-color: #FFFFFF;
+    scrollbar-highlight-color: #FFFFFF;
+    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-darkshadow-color: #FFFFFF;
+    scrollbar-track-color: #FFFFFF;
+    scrollbar-arrow-color: #FFFFFF;
+}
+
+
+/* Let's get this party started */
+#hashTags::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+#hashTags::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+#hashTags::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(111, 169, 255, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+
+body {
+    background: rgba(221, 221, 221, 0.37);
+    font-size: 15px;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow:hidden;
+}
+
+#wrap {
+    margin: 20px 40px;
+    display: inline-block;
+    position: fixed !important;
+    height: 60px;
+    float: left;
+    padding: 0;
+    z-index: 100;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #E51C23;
+}
+
+input[type="text"] {
+    height: 67px;
+    font-size: 55px;
+    display: inline-block;
+    font-weight: 100;
+    border: none;
+    outline: none;
+    color: #E51C23;
+    padding: 3px;
+    padding-left: 80px;
+    width: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    z-index: 3;
+    transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    cursor: pointer;
+}
+
+input[type="text"]:focus:hover {
+    border-bottom: 1px solid #E51C23;
+}
+
+input[type="text"]:focus {
+    width: 700px;
+    z-index: 1;
+    border-bottom: 1px solid #E51C23;
+    cursor: text;
+    background-color: rgba(255, 152, 0, 0.69);
+}
+input[type="submit"] {
+    height: 67px;
+    width: 63px;
+    display: inline-block;
+    color:red;
+    float: left;
+    background: url(data:image/png;base64,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) center center no-repeat;
+    text-indent: -10000px;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+.container-fluid{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
