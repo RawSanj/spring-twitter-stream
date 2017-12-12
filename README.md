@@ -1,4 +1,4 @@
-# Spring-Twitter-Stream [![Build Status](https://travis-ci.org/RawSanj/Spring-Twitter-Stream.svg?branch=master)](https://travis-ci.org/RawSanj/Spring-Twitter-Stream) 
+# Spring-Twitter-Stream [![Build Status](https://travis-ci.org/RawSanj/Spring-Twitter-Stream.svg?branch=master)](https://travis-ci.org/RawSanj/spring-twitter-stream) 
 
 Spring Boot - Spring Social Twitter - D3.Js webapp for Streaming Live #HashTags and source location of Tweets.
 
