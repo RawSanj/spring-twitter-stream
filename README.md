@@ -2,7 +2,7 @@
 
 Spring Boot - Spring Social Twitter - D3.Js webapp for Streaming Live #HashTags and source location of Tweets.
 
-## Demo - Live Demo @ [Heroku](https://twitter-stream-cloud.herokuapp.com)
+## Demo - Live Demo @ [Heroku](https://spring-tweets.herokuapp.com/)
 ![Spring Twitter Stream Demo](/demo.gif?raw=true "Spring Twitter Stream Demo")
 ## Installation
 
