@@ -24,4 +24,4 @@ jobs:
     - name: Install Heroku Java Plugin
       run: heroku plugins:install java
     - name: Deploy to Heroku
-      run: heroku war:deploy target/*.war --app spring-tweets-app
+      run: heroku deploy:jar target/*.jar --app spring-tweets-app
